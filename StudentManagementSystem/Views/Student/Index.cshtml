@@ -1,0 +1,47 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Student>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Student List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Student" asp-action="Create" class="btn btn-success">Create new student</a>
+        </div>
+    </div>
+    <br />
+
+    @if(Model.Count() > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Branch</th>
+                    <th class="text-center">Course</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var student in Model)
+                {
+                    <tr>
+                        <td width="25%">@student.Name</td>
+                        <td width="30%">@student.Branch.Name</td>
+                        <td width="5%" class="text-center">@student.Course</td>
+                        <td width="40%">
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="Student" asp-action="Update" asp-route-Id="@student.Id" class="btn btn-primary mx-1">Update</a>
+                                <a asp-controller="Student" asp-action="Delete" asp-route-Id="@student.Id" class="btn btn-danger mx-1">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No students created yet!</p>
+    }
+</div>

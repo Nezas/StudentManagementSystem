@@ -1,0 +1,61 @@
+﻿@model StudentManagementSystem.Models.ViewModels.StudentVM
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add Student</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Student.Name"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Student.Course"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Student.Branch"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Student.Name" class="form-control" />
+                        <span asp-validation-for="Student.Name" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <select asp-for="Student.Course" class="form-control">
+                            <option selected>--Select Course--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <span asp-validation-for="Student.Course" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <select asp-for="Student.BranchId" asp-items="@Model.DropDown" class="form-control">
+                            <option value="--Select Branch--">--Select Branch--</option>
+                        </select>
+                        <span asp-validation-for="Student.BranchId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-success w-75" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+    @{<partial name="_ValidationScriptsPartial" />}
+}
