@@ -54,6 +54,13 @@ namespace StudentManagementSystem.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            obj.DropDown = _db.Branches.Select(i => new SelectListItem
+            {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            });
+
             return View(obj);
         }
 
