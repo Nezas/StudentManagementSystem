@@ -36,6 +36,7 @@ namespace StudentManagementSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Branch branch)
         {
             if(ModelState.IsValid)
@@ -63,6 +64,7 @@ namespace StudentManagementSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Update(Branch branch)
         {
             if(ModelState.IsValid)
@@ -90,6 +92,7 @@ namespace StudentManagementSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
         {
             var branch = _db.Branches.Find(id);

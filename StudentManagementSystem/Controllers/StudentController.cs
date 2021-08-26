@@ -90,6 +90,7 @@ namespace StudentManagementSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Update(StudentVM studentVM)
         {
             if(ModelState.IsValid)
@@ -121,6 +122,7 @@ namespace StudentManagementSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
         {
             var student = _db.Students.Find(id);
