@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-4">
                         <select asp-for="Student.BranchId" asp-items="@Model.DropDown" class="form-control">
-                            <option value="--Select Branch--">--Select Branch--</option>
+                            <option selected>--Select Branch--</option>
                         </select>
                         <span asp-validation-for="Student.BranchId" class="text-danger"></span>
                     </div>

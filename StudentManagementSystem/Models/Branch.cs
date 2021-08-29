@@ -11,7 +11,7 @@ namespace StudentManagementSystem.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter the branch name.")]
         public string Name { get; set; }
 
         public int StudentsCount { get; set; }

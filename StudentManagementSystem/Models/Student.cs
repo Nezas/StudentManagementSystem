@@ -12,12 +12,13 @@ namespace StudentManagementSystem.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter student's name.")]
         public string Name { get; set; }
 
-        [Range(1, 4, ErrorMessage = "You must select course!")]
+        [Range(1, 4, ErrorMessage = "Please select the course.")]
         public int Course { get; set; }
 
+        [Required(ErrorMessage = "Please select the branch.")]
         public int BranchId { get; set; }
 
         [ForeignKey("BranchId")]
